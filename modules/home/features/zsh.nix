@@ -6,7 +6,8 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       ll = "ls -l";
-      update = "pushd ~/.dotfiles; git add .; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop; popd";
+      update =
+        "pushd ~/.dotfiles; git add .; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop; popd";
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";

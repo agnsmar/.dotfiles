@@ -1,24 +1,27 @@
 { pkgs, config, ... }: {
-  programs.neovim =
-  let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in 
-  {
+  programs.neovim = let
+    toLua = str: ''
+      lua << EOF
+      ${str}
+      EOF
+    '';
+    toLuaFile = file: ''
+      lua << EOF
+      ${builtins.readFile file}
+      EOF
+    '';
+  in {
     enable = true;
 
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = with pkgs; [
-      lua-language-server
-      rnix-lsp
-      ripgrep
-    ];
-    
+    extraPackages = with pkgs; [ lua-language-server rnix-lsp ripgrep ];
+
     plugins = with pkgs.vimPlugins; [
       playground
+      tokyonight-nvim
 
       # TODO: migrate to harpoon2 branch
       harpoon
@@ -27,13 +30,13 @@
       # LSP from NeoVim
       mason-nvim
       mason-lspconfig-nvim
-      
+
       # LSP Support
       nvim-lspconfig
 
       # Autocompletion
       nvim-cmp
-      cmp-nvim-lsp#
+      cmp-nvim-lsp
       luasnip
 
       # Other 
