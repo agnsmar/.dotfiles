@@ -29,6 +29,30 @@ in {
               class = ".";
             };
           }
+          {
+            command = "move to workspace 2";
+            criteria = {
+              class = "Google-chrome";
+            };
+          }
+          {
+            command = "move to workspace 3";
+            criteria = {
+              class = "Alacritty";
+            };
+          }
+          {
+            command = "move to workspace 5";
+            criteria = {
+              class = "Spotify";
+            };
+          }
+          {
+            command = "move to workspace 5";
+            criteria = {
+              class = "discord";
+            };
+          }
         ];
       };     
 
