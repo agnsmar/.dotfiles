@@ -106,7 +106,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ google-chrome _1password-gui ];
+  environment.systemPackages = with pkgs; [ google-chrome discord spotify  _1password-gui ];
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

@@ -42,7 +42,7 @@ in {
             };
           }
           {
-            command = "move to workspace 5";
+            command = "move to workspace 4";
             criteria = {
               class = "Spotify";
             };
