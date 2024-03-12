@@ -13,7 +13,7 @@
     history.path = "${config.xdg.dataHome}/zsh/history";
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" ];
+      plugins = [ "ssh-agent" "git" "sudo" ];
       theme = "robbyrussell";
     };
   };

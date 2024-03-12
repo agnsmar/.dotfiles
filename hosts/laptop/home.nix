@@ -9,12 +9,13 @@
   myHomeManager = {
     i3.enable = true;
     zsh.enable = true;
+    ssh.enable = true;
     tmux.enable = true;
     nvim.enable = true;
     alacritty.enable = true;
     git.enable = true;
   };
-
+  
   services.picom.enable = true;
 
   home = {
