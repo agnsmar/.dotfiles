@@ -34,5 +34,6 @@
       };
     };
     window = { opacity = 0.95; };
+    env.term = "xterm-256color";
   };
 }

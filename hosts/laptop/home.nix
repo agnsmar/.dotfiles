@@ -9,10 +9,13 @@
   myHomeManager = {
     i3.enable = true;
     zsh.enable = true;
+    tmux.enable = true;
     nvim.enable = true;
     alacritty.enable = true;
     git.enable = true;
   };
+
+  services.picom.enable = true;
 
   home = {
     username = "agnes";
@@ -24,6 +27,16 @@
       size = 128;
     };
     stateVersion = "23.11";
-    packages = with pkgs; [ neofetch rustc cargo typescript nodejs_21 ];
+    packages = with pkgs; [
+      (writeShellScriptBin "tmux-sessionizer"
+        (lib.readFile ./../../modules/home/features/tmux/tmux-sessionizer))
+      tmux-sessionizer
+      fzf
+      neofetch
+      rustc
+      cargo
+      typescript
+      nodejs_21
+    ];
   };
 }

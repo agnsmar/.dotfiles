@@ -17,7 +17,7 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = with pkgs; [ lua-language-server rnix-lsp ripgrep ];
+    extraPackages = with pkgs; [ xclip lua-language-server rnix-lsp ripgrep ];
 
     plugins = with pkgs.vimPlugins; [
       playground

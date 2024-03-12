@@ -4,7 +4,7 @@ let mod = "Mod1";
 in {
   xsession.windowManager.i3 = {
     enable = true;
-    
+
     config = {
       modifier = mod;
 
@@ -18,6 +18,8 @@ in {
 
       terminal = "alacritty";
 
+      startup = [{ command = "picom"; }];
+
       window = {
         # NO BORDERS
         border = 0;
@@ -25,36 +27,26 @@ in {
         commands = [
           {
             command = "fullscreen enable";
-            criteria = {
-              class = ".";
-            };
+            criteria = { class = "."; };
           }
           {
             command = "move to workspace 2";
-            criteria = {
-              class = "Google-chrome";
-            };
+            criteria = { class = "Google-chrome"; };
           }
           {
             command = "move to workspace 3";
-            criteria = {
-              class = "Alacritty";
-            };
+            criteria = { class = "Alacritty"; };
           }
           {
             command = "move to workspace 4";
-            criteria = {
-              class = "Spotify";
-            };
+            criteria = { class = "Spotify"; };
           }
           {
             command = "move to workspace 5";
-            criteria = {
-              class = "discord";
-            };
+            criteria = { class = "discord"; };
           }
         ];
-      };     
+      };
 
       keybindings = lib.mkOptionDefault {
         "${mod}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
@@ -129,15 +121,16 @@ in {
         "${mod}+Shift+0" = "move container to workspace 10";
       };
 
-      bars = [
-      { 
+      bars = [{
         position = "bottom";
         fonts = {
           names = [ "DejaVu Sans Mono" ];
           style = "Bold Semi-Condensed";
           size = 11.0;
         };
-        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${./i3status-rust.toml}"; }];
+        statusCommand =
+          "${pkgs.i3status-rust}/bin/i3status-rs ${./i3status-rust.toml}";
+      }];
     };
   };
 }
