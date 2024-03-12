@@ -11,6 +11,7 @@
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
+    initExtra = ''bindkey -s ^f "tmux-sessionizer\n"'';
     oh-my-zsh = {
       enable = true;
       plugins = [ "ssh-agent" "git" "sudo" ];
