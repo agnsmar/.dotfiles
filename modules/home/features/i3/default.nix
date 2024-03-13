@@ -30,6 +30,10 @@ in {
             criteria = { class = "."; };
           }
           {
+            command = "client.focused";
+            criteria = { class = "^.*"; };
+          }
+          {
             command = "move to workspace 2";
             criteria = { class = "Google-chrome"; };
           }
@@ -55,6 +59,8 @@ in {
         "${mod}+Shift+x" =
           "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
 
+        # Start dmenu
+        "${mod}+d" = "exec --no-startup-id i3-dmenu-desktop";
         # Focus
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
