@@ -15,9 +15,9 @@
     alacritty.enable = true;
     git.enable = true;
   };
-  
+
   services.picom.enable = true;
-  
+
   gtk = {
     enable = true;
     theme.package = pkgs.arc-theme;

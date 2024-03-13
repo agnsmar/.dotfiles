@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:{
+{ pkgs, config, ... }: {
   programs.ssh = {
     enable = true;
     extraConfig = ''

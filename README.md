@@ -1,2 +1,7 @@
 # NixOS dotfiles
-My NixOS config, not quite done migrating from my old Ubuntu setup
+My NixOS config
+
+## Todos
+- Figure out how I want to handle programming languages, runtimes, etc.
+- Add my desktop to hosts
+- tmux windowizer
