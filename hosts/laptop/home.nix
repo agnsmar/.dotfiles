@@ -42,9 +42,8 @@
       tmux-sessionizer
       fzf
       neofetch
-      rustc
-      cargo
       typescript
+      rustup
       nodejs_21
     ];
   };

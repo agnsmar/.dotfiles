@@ -7,11 +7,11 @@
     shellAliases = {
       ll = "ls -l";
       update =
-        "pushd ~/.dotfiles; git add .; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop; popd";
+        "git add ~/.dotfiles/*; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop";
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
-    initExtra = ''bindkey -s ^f "tmux-sessionizer\n"'';
+    initExtra = ''bindkey -s ^f "tmux-sessionizer\n"''; # The greatest thing ever created
     oh-my-zsh = {
       enable = true;
       plugins = [ "ssh-agent" "git" "sudo" ];
