@@ -22,6 +22,7 @@
     plugins = with pkgs.vimPlugins; [
       playground
       tokyonight-nvim
+      vim-be-good
 
       # TODO: migrate to harpoon2 branch
       harpoon

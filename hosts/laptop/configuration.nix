@@ -112,6 +112,7 @@
     spotify
     _1password-gui
     lxappearance
+    docker
   ];
 
   # Before changing this value read the documentation for this option
