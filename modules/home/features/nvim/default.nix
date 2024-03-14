@@ -27,6 +27,7 @@
       playground
       tokyonight-nvim
       vim-be-good
+      trouble-nvim
 
       # TODO: migrate to harpoon2 branch
       harpoon
@@ -92,6 +93,7 @@
       ${builtins.readFile ./plugins/harpoon.lua}
       ${builtins.readFile ./plugins/fugitive.lua}
       ${builtins.readFile ./plugins/undotree.lua}
+      ${builtins.readFile ./plugins/trouble.lua}
     '';
   };
 }
