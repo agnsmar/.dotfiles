@@ -12,9 +12,14 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { nixpkgs, self, ... }@inputs:
-    let myUtil = import ./myUtil/default.nix { inherit inputs; };
-    in with myUtil; {
+  outputs = {
+    nixpkgs,
+    self,
+    ...
+  } @ inputs: let
+    myUtil = import ./myUtil/default.nix {inherit inputs;};
+  in
+    with myUtil; {
       nixosConfigurations = {
         # ===================== NixOS Configurations ===================== #
 
@@ -29,6 +34,6 @@
 
       homeManagerModules.default = ./modules/home;
       nixosModules.default = ./modules/nixos;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
 }

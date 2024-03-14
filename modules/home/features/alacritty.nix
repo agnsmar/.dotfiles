@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     colors = with config.colorScheme.palette; {
@@ -33,7 +35,7 @@
         foreground = "0x${base06}";
       };
     };
-    window = { opacity = 0.95; };
+    window = {opacity = 0.95;};
     env.term = "xterm-256color";
   };
 }

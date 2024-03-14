@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = let
     toLua = str: ''
       lua << EOF
@@ -17,7 +21,7 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = with pkgs; [ xclip lua-language-server rnix-lsp ripgrep ];
+    extraPackages = with pkgs; [xclip lua-language-server rnix-lsp ripgrep];
 
     plugins = with pkgs.vimPlugins; [
       playground
@@ -40,7 +44,7 @@
       cmp-nvim-lsp
       luasnip
 
-      # Other 
+      # Other
       cmp-buffer
       cmp-path
       cmp_luasnip
@@ -64,7 +68,7 @@
         config = toLuaFile ./plugins/lsp.lua;
       }
       {
-        plugin = (nvim-treesitter.withPlugins (p: [
+        plugin = nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
           p.tree-sitter-vim
           p.tree-sitter-vimdoc
@@ -74,20 +78,20 @@
           p.tree-sitter-javascript
           p.tree-sitter-rust
           p.tree-sitter-c
-        ]));
+        ]);
         config = toLuaFile ./plugins/treesitter.lua;
       }
     ];
 
     extraLuaConfig = ''
       ${builtins.readFile ./init.lua}
-      ${builtins.readFile ./remap.lua}   
-      ${builtins.readFile ./set.lua}  
-      ${builtins.readFile ./plugins/colors.lua}  
-      ${builtins.readFile ./plugins/telescope.lua}  
-      ${builtins.readFile ./plugins/harpoon.lua}  
-      ${builtins.readFile ./plugins/fugitive.lua}  
-      ${builtins.readFile ./plugins/undotree.lua}  
+      ${builtins.readFile ./remap.lua}
+      ${builtins.readFile ./set.lua}
+      ${builtins.readFile ./plugins/colors.lua}
+      ${builtins.readFile ./plugins/telescope.lua}
+      ${builtins.readFile ./plugins/harpoon.lua}
+      ${builtins.readFile ./plugins/fugitive.lua}
+      ${builtins.readFile ./plugins/undotree.lua}
     '';
   };
 }

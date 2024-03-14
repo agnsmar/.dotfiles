@@ -1,10 +1,14 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.ssh = {
     enable = true;
     extraConfig = ''
       Host github.com
         Hostname github.com
-        User agnsmar 
+        User agnsmar
         IdentityFile ~/.ssh/github
     '';
   };

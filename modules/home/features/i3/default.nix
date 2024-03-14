@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-let mod = "Mod1";
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  mod = "Mod1";
 in {
   xsession.windowManager.i3 = {
     enable = true;
@@ -9,7 +13,7 @@ in {
       modifier = mod;
 
       fonts = {
-        names = [ "DejaVu Sans Mono" ];
+        names = ["DejaVu Sans Mono"];
         style = "Bold Semi-Condensed";
         size = 15.0;
       };
@@ -18,7 +22,7 @@ in {
 
       terminal = "alacritty";
 
-      startup = [{ command = "picom"; }];
+      startup = [{command = "picom";}];
 
       window = {
         # NO BORDERS
@@ -27,37 +31,35 @@ in {
         commands = [
           {
             command = "fullscreen enable";
-            criteria = { class = "."; };
+            criteria = {class = ".";};
           }
           {
             command = "client.focused";
-            criteria = { class = "^.*"; };
+            criteria = {class = "^.*";};
           }
           {
             command = "move to workspace 2";
-            criteria = { class = "Google-chrome"; };
+            criteria = {class = "Google-chrome";};
           }
           {
             command = "move to workspace 3";
-            criteria = { class = "Alacritty"; };
+            criteria = {class = "Alacritty";};
           }
           {
             command = "move to workspace 4";
-            criteria = { class = "Spotify"; };
+            criteria = {class = "Spotify";};
           }
           {
             command = "move to workspace 5";
-            criteria = { class = "discord"; };
+            criteria = {class = "discord";};
           }
         ];
       };
 
       keybindings = lib.mkOptionDefault {
         "${mod}+p" = "exec ${pkgs.dmenu}/bin/dmenu_run";
-        "${mod}+x" =
-          "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
-        "${mod}+Shift+x" =
-          "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
+        "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
+        "${mod}+Shift+x" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
 
         # Start dmenu
         "${mod}+d" = "exec --no-startup-id i3-dmenu-desktop";
@@ -88,7 +90,7 @@ in {
         # Split Vertically
         "${mod}+z" = "split v";
 
-        # Split Horizontally 
+        # Split Horizontally
         "${mod}+v" = "split h";
 
         # Change container layout
@@ -127,16 +129,17 @@ in {
         "${mod}+Shift+0" = "move container to workspace 10";
       };
 
-      bars = [{
-        position = "bottom";
-        fonts = {
-          names = [ "DejaVu Sans Mono" ];
-          style = "Bold Semi-Condensed";
-          size = 11.0;
-        };
-        statusCommand =
-          "${pkgs.i3status-rust}/bin/i3status-rs ${./i3status-rust.toml}";
-      }];
+      bars = [
+        {
+          position = "bottom";
+          fonts = {
+            names = ["DejaVu Sans Mono"];
+            style = "Bold Semi-Condensed";
+            size = 11.0;
+          };
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${./i3status-rust.toml}";
+        }
+      ];
     };
   };
 }

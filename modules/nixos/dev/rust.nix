@@ -1,8 +1,12 @@
-{ config, options, lib, pkgs, ... }:
-
 {
+  config,
+  options,
+  lib,
+  pkgs,
+  ...
+}: {
   config = {
-    environment.systemPackages = with pkgs; [ gcc rustup ];
+    environment.systemPackages = with pkgs; [gcc rustup];
     environment.shellAliases = {
       rs = "rustc";
       rsp = "rustup";
@@ -11,6 +15,6 @@
 
     env.RUSTUP_HOME = "$HOME/.rustup";
     env.CARGO_HOME = "$HOME/.cargo";
-    env.PATH = [ "$CARGO_HOME/bin" ];
+    env.PATH = ["$CARGO_HOME/bin"];
   };
 }

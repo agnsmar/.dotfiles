@@ -1,5 +1,13 @@
-{ config, pkgs, lib, inputs, outputs, system, myUtil, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  outputs,
+  system,
+  myUtil,
+  ...
+}: let
   MHz = x: x * 1000;
   inherit (lib) mkDefault;
 in {
@@ -35,19 +43,19 @@ in {
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  environment.pathsToLink = [ "/libexec" ];
+  environment.pathsToLink = ["/libexec"];
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     dpi = 140;
-    desktopManager = { xterm.enable = false; };
+    desktopManager = {xterm.enable = false;};
 
-    displayManager = { defaultSession = "none+i3"; };
+    displayManager = {defaultSession = "none+i3";};
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ dmenu i3status-rust material-icons i3lock ];
+      extraPackages = with pkgs; [dmenu i3status-rust material-icons i3lock];
     };
   };
 
@@ -107,7 +115,7 @@ in {
       "agnes" = {
         userConfig = ./home.nix;
         userSettings = {
-          extraGroups = [ "networkmanager" "wheel" ];
+          extraGroups = ["networkmanager" "wheel"];
           initialPassword = "123456789";
         };
       };
