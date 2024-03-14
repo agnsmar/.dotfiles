@@ -79,6 +79,7 @@
           p.tree-sitter-typescript
           p.tree-sitter-javascript
           p.tree-sitter-rust
+          p.tree-sitter-c
         ]));
         config = toLuaFile ./plugins/treesitter.lua;
       }

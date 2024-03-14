@@ -7,7 +7,9 @@
     shellAliases = {
       ll = "ls -l";
       update =
-        "git add ~/.dotfiles/*; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop";
+        "nix fmt ~/.dotfiles; git add ~/.dotfiles/*; sudo nixos-rebuild switch --flake ~/.dotfiles#laptop";
+      upgrade =
+        "nix fmt ~/.dotfiles; git add ~/.dotfiles/*; sudo nixos-rebuild switch --upgrade  --flake ~/.dotfiles#laptop";
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";

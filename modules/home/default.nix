@@ -1,4 +1,5 @@
 { pkgs, system, inputs, config, lib, myUtil, ... }:
+with lib;
 let
   cfg = config.myHomeManager;
 
@@ -6,9 +7,9 @@ let
   features = myUtil.extendModules (name: {
     extraOptions = {
       myHomeManager.${name}.enable =
-        lib.mkEnableOption "enable my ${name} configuration";
+        mkEnableOption "enable my ${name} configuration";
     };
 
-    configExtension = config: (lib.mkIf cfg.${name}.enable config);
+    configExtension = config: (mkIf cfg.${name}.enable config);
   }) (myUtil.filesIn ./features);
 in { imports = [ ] ++ features; }

@@ -1,4 +1,8 @@
-{ config, pkgs, lib, inputs, outputs, system, myUtil, ... }: {
+{ config, pkgs, lib, inputs, outputs, system, myUtil, ... }:
+let
+  MHz = x: x * 1000;
+  inherit (lib) mkDefault;
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -47,6 +51,24 @@
     };
   };
 
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        scaling_min_freq = mkDefault (MHz 1800);
+        scaling_max_freq = mkDefault (MHz 3600);
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        scaling_min_freq = mkDefault (MHz 2000);
+        scaling_max_freq = mkDefault (MHz 4800);
+        turbo = "auto";
+      };
+    };
+  };
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -78,6 +100,8 @@
 
   myNixOS = {
     bundles.users.enable = true;
+    dev.rust.enable = true;
+    dev.node.enable = true;
 
     home-users = {
       "agnes" = {
@@ -112,7 +136,6 @@
     spotify
     _1password-gui
     lxappearance
-    docker
   ];
 
   # Before changing this value read the documentation for this option
