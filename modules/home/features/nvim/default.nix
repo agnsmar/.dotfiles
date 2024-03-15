@@ -28,6 +28,7 @@
       tokyonight-nvim
       vim-be-good
       trouble-nvim
+      nvim-treesitter-context
 
       # TODO: migrate to harpoon2 branch
       harpoon
