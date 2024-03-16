@@ -26,62 +26,53 @@
     plugins = with pkgs.vimPlugins; [
       playground
       tokyonight-nvim
+
+      # ThePrimeagen Goodies
       vim-be-good
-      trouble-nvim
       nvim-treesitter-context
-
-      # TODO: migrate to harpoon2 branch
       harpoon
-      plenary-nvim # harpoon2 dependency
+      refactoring-nvim
+      plenary-nvim
 
-      # LSP from NeoVim
+      fugitive
+      trouble-nvim
+      friendly-snippets
+      neogen
+      neotest
+      neotest-plenary
+      neotest-vitest
+      FixCursorHold-nvim
+      fidget-nvim
+      telescope-nvim
+      undotree
+      zen-mode-nvim
+
+      # LSP
+      nvim-lspconfig
       mason-nvim
       mason-lspconfig-nvim
-
-      # LSP Support
-      nvim-lspconfig
-
-      # Autocompletion
-      nvim-cmp
       cmp-nvim-lsp
-      luasnip
-
-      # Other
       cmp-buffer
       cmp-path
+      cmp-cmdline
+      nvim-cmp
+      luasnip
       cmp_luasnip
-      cmp-nvim-lua
-      friendly-snippets
 
       {
-        plugin = telescope-nvim;
-        config = toLuaFile ./plugins/telescope.lua;
-      }
-      {
-        plugin = undotree;
-        config = toLuaFile ./plugins/undotree.lua;
-      }
-      {
-        plugin = fugitive;
-        config = toLuaFile ./plugins/fugitive.lua;
-      }
-      {
-        plugin = lsp-zero-nvim;
-        config = toLuaFile ./plugins/lsp.lua;
-      }
-      {
-        plugin = nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-vim
-          p.tree-sitter-vimdoc
-          p.tree-sitter-bash
-          p.tree-sitter-lua
-          p.tree-sitter-typescript
-          p.tree-sitter-javascript
-          p.tree-sitter-rust
-          p.tree-sitter-c
-        ]);
-        config = toLuaFile ./plugins/treesitter.lua;
+        plugin =
+          nvim-treesitter.withPlugins
+          (p: [
+            p.tree-sitter-nix
+            p.tree-sitter-vim
+            p.tree-sitter-vimdoc
+            p.tree-sitter-bash
+            p.tree-sitter-lua
+            p.tree-sitter-typescript
+            p.tree-sitter-javascript
+            p.tree-sitter-rust
+            p.tree-sitter-c
+          ]);
       }
     ];
 
@@ -89,12 +80,19 @@
       ${builtins.readFile ./init.lua}
       ${builtins.readFile ./remap.lua}
       ${builtins.readFile ./set.lua}
-      ${builtins.readFile ./plugins/colors.lua}
+      ${builtins.readFile ./plugins/lsp.lua}
+      ${builtins.readFile ./plugins/treesitter.lua}
       ${builtins.readFile ./plugins/telescope.lua}
-      ${builtins.readFile ./plugins/harpoon.lua}
-      ${builtins.readFile ./plugins/fugitive.lua}
       ${builtins.readFile ./plugins/undotree.lua}
+      ${builtins.readFile ./plugins/snippets.lua}
+      ${builtins.readFile ./plugins/fugitive.lua}
       ${builtins.readFile ./plugins/trouble.lua}
+      ${builtins.readFile ./plugins/harpoon.lua}
+      ${builtins.readFile ./plugins/zenmode.lua}
+      ${builtins.readFile ./plugins/trouble.lua}
+      ${builtins.readFile ./plugins/neotest.lua}
+      ${builtins.readFile ./plugins/neogen.lua}
+      ${builtins.readFile ./plugins/colors.lua}
     '';
   };
 }

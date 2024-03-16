@@ -42,6 +42,10 @@ in {
             criteria = {class = "Google-chrome";};
           }
           {
+            command = "move to workspace 2";
+            criteria = {class = "Firefox";};
+          }
+          {
             command = "move to workspace 3";
             criteria = {class = "Alacritty";};
           }
