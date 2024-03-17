@@ -131,6 +131,16 @@ in {
         "${mod}+Shift+8" = "move container to workspace 8";
         "${mod}+Shift+9" = "move container to workspace 9";
         "${mod}+Shift+0" = "move container to workspace 10";
+
+        # FKeys
+        # Pulse Audio controls
+        "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%"; #increase sound volume
+        "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%"; #decrease sound volume
+        "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle"; # mute sound
+        #
+        # # Sreen brightness controls
+        "XF86MonBrightnessUp" = "exec xbacklight -inc 20"; # increase screen brightness
+        "XF86MonBrightnessDown" = "exec xbacklight -dec 20"; # decrease screen brightness
       };
 
       bars = [

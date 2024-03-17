@@ -27,6 +27,9 @@ block = "battery"
 format = " $icon $percentage "
 
 [[block]]
+block = "sound"
+
+[[block]]
 block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %d/%m %R') "
