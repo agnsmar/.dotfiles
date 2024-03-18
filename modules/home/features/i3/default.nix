@@ -139,8 +139,8 @@ in {
         "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle"; # mute sound
         #
         # # Sreen brightness controls
-        "XF86MonBrightnessUp" = "exec xbacklight -inc 20"; # increase screen brightness
-        "XF86MonBrightnessDown" = "exec xbacklight -dec 20"; # decrease screen brightness
+        "XF86MonBrightnessUp" = "exec brightnessctl set 20%+"; # increase screen brightness
+        "XF86MonBrightnessDown" = "exec brightnessctl set 20%-"; # decrease screen brightness
       };
 
       bars = [
