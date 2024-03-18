@@ -146,6 +146,7 @@ in {
     spotify
     _1password-gui
     lxappearance
+    brightnessctl
   ];
 
   # Before changing this value read the documentation for this option

@@ -20,6 +20,7 @@
     nvim.enable = true;
     alacritty.enable = true;
     git.enable = true;
+    feh.enable = true;
   };
 
   services.picom.enable = true;

@@ -137,8 +137,8 @@ in {
         "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%"; #increase sound volume
         "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%"; #decrease sound volume
         "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle"; # mute sound
-        #
-        # # Sreen brightness controls
+
+        # Screen brightness controls
         "XF86MonBrightnessUp" = "exec brightnessctl set 20%+"; # increase screen brightness
         "XF86MonBrightnessDown" = "exec brightnessctl set 20%-"; # decrease screen brightness
       };
