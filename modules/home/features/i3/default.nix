@@ -34,6 +34,10 @@ in {
             criteria = {class = ".";};
           }
           {
+            command = "border pixel 0";
+            criteria = {class = "^.*";};
+          }
+          {
             command = "client.focused";
             criteria = {class = "^.*";};
           }
