@@ -147,6 +147,11 @@ in {
     _1password-gui
     lxappearance
     brightnessctl
+    gimp
+  ];
+
+  fonts.packages = with pkgs; [
+    font-awesome_4
   ];
 
   # Before changing this value read the documentation for this option

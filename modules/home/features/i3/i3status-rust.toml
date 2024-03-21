@@ -4,7 +4,7 @@ icons_format = " {icon} "
 theme = "ctp-mocha"
 
 [icons]
-icons = "none"
+icons = "awesome4"
 
 [[block]]
 block = "cpu"

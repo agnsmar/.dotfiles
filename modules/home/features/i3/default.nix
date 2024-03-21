@@ -22,7 +22,11 @@ in {
 
       terminal = "alacritty";
 
-      startup = [{command = "picom";}];
+      startup = [
+        {command = "picom";}
+        {command = "firefox";}
+        {command = "alacritty";}
+      ];
 
       window = {
         # NO BORDERS
@@ -47,7 +51,7 @@ in {
           }
           {
             command = "move to workspace 2";
-            criteria = {class = "Firefox";};
+            criteria = {class = "firefox";};
           }
           {
             command = "move to workspace 3";
