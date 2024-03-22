@@ -59,6 +59,9 @@ in {
     };
   };
 
+  services.mullvad-vpn = {
+    enable = true;
+  };
   services.auto-cpufreq = {
     enable = true;
     settings = {
@@ -148,6 +151,8 @@ in {
     lxappearance
     brightnessctl
     gimp
+    mullvad
+    mullvad-vpn
   ];
 
   fonts.packages = with pkgs; [
