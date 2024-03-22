@@ -21,6 +21,7 @@
     alacritty.enable = true;
     git.enable = true;
     feh.enable = true;
+    redshift.enable = true;
   };
 
   services.picom.enable = true;

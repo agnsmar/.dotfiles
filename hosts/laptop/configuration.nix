@@ -62,6 +62,7 @@ in {
   services.mullvad-vpn = {
     enable = true;
   };
+
   services.auto-cpufreq = {
     enable = true;
     settings = {
@@ -153,6 +154,8 @@ in {
     gimp
     mullvad
     mullvad-vpn
+    qbittorrent
+    vlc
   ];
 
   fonts.packages = with pkgs; [
