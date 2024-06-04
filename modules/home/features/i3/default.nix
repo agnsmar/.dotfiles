@@ -160,6 +160,7 @@ in {
             size = 11.0;
           };
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${./i3status-rust.toml}";
+          trayOutput = "none";
         }
       ];
     };
