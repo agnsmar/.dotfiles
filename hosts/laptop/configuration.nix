@@ -114,6 +114,7 @@ in {
     bundles.users.enable = true;
     dev.rust.enable = true;
     dev.node.enable = true;
+    dev.java.enable = true;
 
     home-users = {
       "agnes" = {

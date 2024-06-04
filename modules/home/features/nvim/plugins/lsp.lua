@@ -15,6 +15,7 @@ require("mason-lspconfig").setup({
         "tsserver",
         "rnix",
         "eslint",
+        "jdtls",
     },
     handlers = {
         function(server_name) -- default handler (optional)
